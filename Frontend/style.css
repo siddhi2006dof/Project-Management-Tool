@@ -1,142 +1,101 @@
-/* style.css */
-
+/* Make body full height with background */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
-  padding: 40px;
-  max-width: 700px;
-  margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #2c3e50;
-  font-size: 2em;
-  margin-bottom: 30px;
-}
-
-form {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
   display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+ /* Test commmit by Siddhi dubey */
+/* Container to center everything */
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
 }
 
-input[type="text"] {
-  flex: 1;
+/* Common styles */
+header, section, footer {
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  margin-bottom: 15px;
+}
+
+input, select, button {
   padding: 10px;
+  margin: 8px auto;
+  width: 90%;
+  max-width: 400px;
+  display: block;
+  border-radius: 8px;
+  border: none;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-}
-
-input[type="text"]:focus {
-  border-color: #007bff;
 }
 
 button {
-  padding: 10px 18px;
-  font-size: 16px;
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
-  border: none;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #218838;
 }
 
-h2 {
-  color: #34495e;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 5px;
-  margin-top: 30px;
-}
-
-#project-list {
+ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
 }
 
-#project-list li {
-  background-color: #ffffff;
-  padding: 12px 16px;
-  margin-bottom: 12px;
-  border-left: 6px solid #007bff;
+li {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 5px auto;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  max-width: 400px;
 }
 
-
-.task-list {
-  margin-top: 10px;
-  margin-left: 20px;
+.login-signup {
+  text-align: right;
+  margin-bottom: 10px;
 }
 
-.task-form {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+.login-signup a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.task-input {
-  flex: 1;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+footer {
+  font-size: 14px;
+  margin-top: 20px;
 }
+/* Responsive styles */
+@media (max-width: 600px) {   
+  body {
+    padding: 10px;
+  }
 
-.task-check {
-  margin-right: 8px;
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  input, select, button {
+    width: calc(100% - 20px);
+  }
 }
-
-.delete-btn {
-  background: none;
-  border: none;
-  color: red;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.delete-btn:hover {
-  color: darkred;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

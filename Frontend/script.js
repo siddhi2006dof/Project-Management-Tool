@@ -1,54 +1,41 @@
-// script.js
+let currentProject = null;
 
-const form = document.getElementById('project-form');
-const input = document.getElementById('project-name');
-const list = document.getElementById('project-list');
-
-// Form submit: Add project
-form.addEventListener('submit', function (e) {
+document.getElementById('project-form').addEventListener('submit', function (e) {
   e.preventDefault();
-  const projectName = input.value.trim();
-  if (projectName === '') return;
 
-  const projectContainer = document.createElement('li');
-  projectContainer.innerHTML = `
-    <strong>📁 ${projectName}</strong>
-    <ul class="task-list"></ul>
-    <form class="task-form">
-      <input type="text" class="task-input" placeholder="Add task" required />
-      <button type="submit">Add Task</button>
-    </form>
-  `;
+  const name = document.getElementById('project-name').value;
+  const desc = document.getElementById('project-desc').value;
+  const projectList = document.getElementById('project-list');
 
-  // Add project to list
-  list.appendChild(projectContainer);
-  input.value = '';
+  const li = document.createElement('li');
+  li.textContent = `${name} - ${desc}`;
+  li.style.cursor = 'pointer';
 
-  // Add event listener for task form
-  const taskForm = projectContainer.querySelector('.task-form');
-  const taskList = projectContainer.querySelector('.task-list');
-
-  taskForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const taskInput = taskForm.querySelector('.task-input');
-  const taskName = taskInput.value.trim();
-  if (taskName === '') return;
-
-  const taskItem = document.createElement('li');
-  taskItem.innerHTML = `
-    <input type="checkbox" class="task-check" />
-    <span>${taskName}</span>
-    <button type="button" class="delete-btn">🗑️</button>
-  `;
-
-  taskList.appendChild(taskItem);
-  taskInput.value = '';
-
-  const deleteBtn = taskItem.querySelector('.delete-btn');
-  deleteBtn.addEventListener('click', () => {
-    taskItem.remove();
+  li.addEventListener('click', function () {
+    currentProject = name;
+    document.getElementById('task-list').innerHTML = '';
   });
+
+  projectList.appendChild(li);
+
+  document.getElementById('project-form').reset();
 });
 
-  });
+document.getElementById('task-form').addEventListener('submit', function (e) {
+  e.preventDefault();
 
+  if (!currentProject) {
+    alert('Please select a project first.');
+    return;
+  }
+
+  const taskName = document.getElementById('task-name').value;
+  const taskStatus = document.getElementById('task-status').value;
+  const taskList = document.getElementById('task-list');
+
+  const li = document.createElement('li');
+  li.textContent = `${taskName} [${taskStatus}]`;
+
+  taskList.appendChild(li);
+  document.getElementById('task-form').reset();
+});
